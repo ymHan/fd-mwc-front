@@ -65,6 +65,18 @@ const Gallery: React.FC = () => {
   const generateQ = (video: string) => {
     return `${video}`;
   };
+
+  const getDates = () => {
+    let months = '';
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    if (month < 10) {
+      months = `0${month}`;
+    }
+    const day = date.getDate();
+    return `${year}${months}${day}`;
+  }
   return (
     <div>
       <ImageList>
@@ -72,7 +84,7 @@ const Gallery: React.FC = () => {
           <ImageListItem key={item.index}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={`http://cdn.4dist.com/mwc/20240215/${item.thumbnail}?w=248&fit=crop&auto=format`}
+              src={`${process.env.DOWNLOAD_PATH}/${this.getDates()}/${item.thumbnail}?w=248&fit=crop&auto=format`}
               alt={item.index}
               loading="lazy"
               onClick={() => {
