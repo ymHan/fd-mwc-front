@@ -43,7 +43,7 @@ const Gallery: React.FC = () => {
       try {
         const res = await fetch("https://api.4dist.com/v1/mwc");
         const { data } = await res.json();
-        const images = data.filter((d: any) => d.thumbnail.includes(".jpg")).map((d: any) => d.thumbnail);
+        const images = data.filter((d: any) => d.thumbnail.includes(".png")).map((d: any) => d.thumbnail);
         setImages(data);
 
       } catch (error) {
