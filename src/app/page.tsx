@@ -41,7 +41,7 @@ const Gallery: React.FC = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const res = await fetch("http://localhost:3000/v1/mwc");
+        const res = await fetch("https://api.4dist.com/v1/mwc");
         const { data } = await res.json();
         const images = data.filter((d: any) => d.thumbnail.includes(".jpg")).map((d: any) => d.thumbnail);
         setImages(data);
