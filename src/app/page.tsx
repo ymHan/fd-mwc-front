@@ -16,7 +16,9 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Backdrop from '@mui/material/Backdrop';
 import Modal from '@mui/material/Modal';
+import { positions } from '@mui/system';
 
+this.download = this.download.bind(this);
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -63,6 +65,7 @@ const Gallery: React.FC = () => {
   };
 
   const generateQ = (video: string) => {
+    console.log(video);
     return `${video}`;
   };
 
@@ -79,6 +82,7 @@ const Gallery: React.FC = () => {
   }
   return (
     <div>
+      <div style={{display: hi}}></div>
       <ImageList>
         {images.map((item) => (
           <ImageListItem key={item.index}>
@@ -123,8 +127,16 @@ const Gallery: React.FC = () => {
         >
           <Fade in={open}>
             <Box sx={style}>
-              <ReactPlayer url={getVideoPath(selectedImage!)} controls playing={true} />
-              <QRCode value={generateQ(selectedImage!)} />
+              <ReactPlayer url={getVideoPath(selectedImage!)} controls playing={true} loop={true} />
+              <QRCode value={generateQ(selectedImage!)} style={{
+                position: 'absolute',
+                top: '32px',
+                right: '32px',
+                background: 'rgb(255, 255, 255)',
+                padding: '5px',
+                margin: 'auto',
+                transition: '0.5s ease',
+              }} />
             </Box>
           </Fade>
         </Modal>
