@@ -18,8 +18,6 @@ import Backdrop from '@mui/material/Backdrop';
 import Modal from '@mui/material/Modal';
 import { positions } from '@mui/system';
 
-this.download = this.download.bind(this);
-
 const style = {
   position: 'absolute' as 'absolute',
   top: '50%',
@@ -82,7 +80,6 @@ const Gallery: React.FC = () => {
   }
   return (
     <div>
-      <div style={{display: hi}}></div>
       <ImageList>
         {images.map((item) => (
           <ImageListItem key={item.index}>
