@@ -64,7 +64,12 @@ const Gallery: React.FC = () => {
 
   const generateQ = (video: string) => {
     console.log(video);
-    return `${video}`;
+    const parts = video.split("/");
+    const filename = parts[parts.length - 1];
+    console.log(filename)
+    const url = 'https://api.4dist.com/v1/mwc/'
+    console.log(`${url}${filename}`);
+    return `${url}${filename}`;
   };
 
   const getDates = () => {
