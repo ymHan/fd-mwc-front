@@ -25,7 +25,7 @@ const Popup = (props) => {
   return (
     <>
       <div className={"Player"} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 10000000 }}>
-        <ReactPlayer url={getVideoPath(video!)} controls={false} playing={true} loop={true} wrapper={'span'} />
+        <ReactPlayer url={getVideoPath(video!)} controls playing={true} loop={true} wrapper={'span'} />
       </div>
       <QRCode value={generateQ(video!)} style={{
         position: 'absolute',
