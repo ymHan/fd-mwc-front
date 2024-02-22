@@ -17,6 +17,9 @@ import Typography from '@mui/material/Typography';
 import Backdrop from '@mui/material/Backdrop';
 import Modal from '@mui/material/Modal';
 import { positions } from '@mui/system';
+import { Link } from 'react-router-dom';
+
+import Popup from './popup';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -55,7 +58,8 @@ const Gallery: React.FC = () => {
   }, []);
 
   const handleImageClick = (video: string) => {
-    setSelectedImage(video);
+    //setSelectedImage(video);
+    const popup = window.open(`/popup?video=${video}`, 'Popup', `width=${screen.width}, height=${screen.height},fullscreen=yes`);
   };
 
   const getVideoPath = (video: string) => {
@@ -63,12 +67,9 @@ const Gallery: React.FC = () => {
   };
 
   const generateQ = (video: string) => {
-    console.log(video);
     const parts = video.split("/");
     const filename = parts[parts.length - 1];
-    console.log(filename)
     const url = 'https://api.4dist.com/v1/mwc/'
-    console.log(`${url}${filename}`);
     return `${url}${filename}`;
   };
 
@@ -96,8 +97,8 @@ const Gallery: React.FC = () => {
               onClick={() => {
                 handleImageClick(item.download);
                 handleOpen();
-                console.log('clicked')
               }}
+              style={{ cursor: 'pointer' }}
             />
             <ImageListItemBar
               title={item.index}
@@ -113,36 +114,6 @@ const Gallery: React.FC = () => {
           </ImageListItem>
         ))}
       </ImageList>
-      {open &&
-        <Modal
-          aria-labelledby="transition-modal-title"
-          aria-describedby="transition-modal-description"
-          open={open}
-          onClose={handleClose}
-          closeAfterTransition
-          slots={{ backdrop: Backdrop }}
-          slotProps={{
-            backdrop: {
-              timeout: 500,
-            },
-          }}
-        >
-          <Fade in={open}>
-            <Box sx={style}>
-              <ReactPlayer url={getVideoPath(selectedImage!)} controls playing={true} loop={true} />
-              <QRCode value={generateQ(selectedImage!)} style={{
-                position: 'absolute',
-                top: '32px',
-                right: '32px',
-                background: 'rgb(255, 255, 255)',
-                padding: '5px',
-                margin: 'auto',
-                transition: '0.5s ease',
-              }} />
-            </Box>
-          </Fade>
-        </Modal>
-      }
     </div>
   );
 };
