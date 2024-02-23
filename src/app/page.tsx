@@ -91,7 +91,7 @@ const Gallery: React.FC = () => {
           <ImageListItem key={item.index}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={`http://cdn.4dist.com/mwc/${getDates()}/${item.thumbnail}?w=248&fit=crop&auto=format`}
+              src={`http://cdn.4dist.com/de-01/mwc/${getDates()}/${item.thumbnail}?w=248&fit=crop&auto=format`}
               alt={item.index}
               loading="lazy"
               onClick={() => {
