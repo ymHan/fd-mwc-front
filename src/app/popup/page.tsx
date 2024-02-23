@@ -7,6 +7,7 @@ const Popup = (props) => {
   let getParameter = (key) => {
     return new URLSearchParams(location.search).get(key);
   }
+
   const video = getParameter('video') as string;
   const parts = video.split("/");
   const filename = parts[parts.length - 1];
@@ -18,8 +19,7 @@ const Popup = (props) => {
   };
 
   const generateQ = (filename: string) => {
-    const url = 'https://api.4dist.com/v1/mwc/'
-    return `${url}${filename}`;
+    return `${filename}`;
   };
 
   return (
