@@ -1,25 +1,22 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ReactPlayer from "react-player";
 import QRCode from "qrcode.react";
-//import { URLSearchParams } from "url-search-params";
-const Popup = (props) => {
-  let getParameter = (key) => {
+
+const Popup = () => {
+  let getParameter = (key: any) => {
     return new URLSearchParams(location.search).get(key);
   }
 
   const video = getParameter('video') as string;
-  const parts = video.split("/");
-  const filename = parts[parts.length - 1];
-
 
 
   const getVideoPath = (video: string) => {
     return `${video}`;
   };
 
-  const generateQ = (filename: string) => {
-    return `${filename}`;
+  const generateQ = (url: string) => {
+    return `http://mwc.4dist.com/download?video=${url}`;
   };
 
   return (
