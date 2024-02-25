@@ -16,12 +16,9 @@ const Popup = () => {
   };
 
   const generateQ = (url: string) => {
-    return `http://mwc.4dist.com/download?video=${url}`;
+    const filename = url.match(/\/([^\/?#]+)$/)[1]
+    return `http://mwc.4dist.com/download?video=${filename}`;
   };
-
-  async function getFile() {
-    con
-  }
 
   return (
     <>
