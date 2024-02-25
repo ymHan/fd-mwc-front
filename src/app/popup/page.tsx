@@ -22,6 +22,10 @@ const Popup = (props) => {
     return `${filename}`;
   };
 
+  async function getFile() {
+    con
+  }
+
   return (
     <>
       <div className={"Player"} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 10000000 }}>
