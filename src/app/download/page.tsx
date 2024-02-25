@@ -11,7 +11,7 @@ const download = () => {
 
     return (
         <>
-            <h1><a href={video}>Download</a></h1>
+            <h1><a href={video} download={video}>Download</a></h1>
         </>
     )
 }
