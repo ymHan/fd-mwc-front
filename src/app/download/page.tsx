@@ -10,9 +10,9 @@ const download = () => {
     const video = getParameter('video') as string;
 
     return (
-        <>
-            <h1><a href={video} download={video}>Download</a></h1>
-        </>
+        <div>
+            <a href={video} download={video}><h1>Download File</h1></a>
+        </div>
     )
 }
 export default download
