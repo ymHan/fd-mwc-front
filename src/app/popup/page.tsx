@@ -2,12 +2,10 @@
 import React from "react";
 import ReactPlayer from "react-player";
 import QRCode from "qrcode.react";
-import { useSearchParams } from 'next/navigation';
 
 const Popup = () => {
   let getParameter = (key: any) => {
-    const searchParams = useSearchParams();
-    return searchParams.get(key);
+    return new URLSearchParams(location.search).get(key);
   }
 
   const video = getParameter('video') as string;
