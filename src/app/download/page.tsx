@@ -8,11 +8,12 @@ const download = () => {
     }
 
     const video = getParameter('video') as string;
-
+    const file = video.match(/\/([^\/?#]+)$/)[1]
+    const filename = `${file.split('.')[0]}.html`;
     return (
-        <div>
-            <a href={video} download={video}><h1>Download File</h1></a>
-        </div>
+        <>
+            <iframe src={filename} width={'100%'}></iframe>
+        </>
     )
 }
 export default download
