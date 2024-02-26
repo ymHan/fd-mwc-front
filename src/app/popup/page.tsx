@@ -10,18 +10,16 @@ const Popup = () => {
 
   const video = getParameter('video') as string;
 
-
   const getVideoPath = (video: string) => {
     return `${video}`;
   };
 
   const generateQ = (url: string) => {
 
-    const fils = url.match(/\/([^\/?#]+)$/)[1]
-    const filename = fils.split('.')[0];
+    const file = url.match(/\/([^\/?#]+)$/)[1]
+    const filename = file.split('.')[0];
     return `http://mwc.4dist.com/download/${filename}.html`;
 
-    //return `${url}`;
   };
 
   return (
