@@ -1,3 +1,4 @@
+/*
 "use client";
 import React from "react";
 import Popup from "@/app/popup/page";
@@ -17,4 +18,28 @@ const download = () => {
         </>
     )
 }
-export default download
+export default download*/
+'use client';
+import React from 'react';
+import { useSearchParams } from 'next/navigation';
+import { iframeCode } from './iframe';
+
+const page = () => {
+    const searchParams = useSearchParams();
+    const url = searchParams.get('video') as string;
+    const pid = url.match(/\/([^\/?#]+)$/)[1];
+
+    return (
+      <div>
+          <li>
+              <div
+                dangerouslySetInnerHTML={{
+                    __html: iframeCode(pid),
+                }}
+              />
+          </li>
+      </div>
+    );
+};
+
+export default page;

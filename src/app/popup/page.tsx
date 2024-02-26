@@ -15,7 +15,6 @@ const Popup = () => {
   };
 
   const generateQ = (url: string) => {
-    console.log(`http://mwc.4dist.com/download?video=${url}`);
     return `http://mwc.4dist.com/download?video=${url}`;
   };
 
