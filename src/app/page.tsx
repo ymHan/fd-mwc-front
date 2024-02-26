@@ -31,7 +31,6 @@ const Gallery: React.FC = () => {
     const fileName = video.match(/\/([^\/?#]+)$/)[1];
     const popup = window.open(`/popup?video=${video}`, 'Popup', `width=${screen.width}, height=${screen.height},fullscreen=yes`);
     const result = await fetch(`https://api.4dist.com/v1/mwc/html?filename=${fileName}`);
-    console.log(result);
   };
 
   const getDates = () => {
