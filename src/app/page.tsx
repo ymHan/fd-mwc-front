@@ -15,8 +15,8 @@ const Gallery: React.FC = () => {
       try {
         const res = await fetch("https://api.4dist.com/v1/mwc");
         const { data } = await res.json();
-        console.log(data)
-        const images = data.filter((d: any) => d.thumbnail.includes(".png")).map((d: any) => d.thumbnail);
+
+        const images = data.filter((d: any) => d.thumbnail.includes(".jpg")).map((d: any) => d.thumbnail);
         setImages(data);
 
       } catch (error) {
@@ -27,8 +27,10 @@ const Gallery: React.FC = () => {
     fetchImages();
   }, []);
 
-  const handleImageClick = (video: string) => {
+  const handleImageClick = async (video: string) => {
     const popup = window.open(`/popup?video=${video}`, 'Popup', `width=${screen.width}, height=${screen.height},fullscreen=yes`);
+    const result = await fetch("https://api.4dist.com/v1/mwc/html");
+    console.log(result);
   };
 
   const getDates = () => {
