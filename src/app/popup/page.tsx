@@ -18,9 +18,8 @@ const Popup = () => {
 
   const generateQ = (url: string) => {
     const file = url.match(/\/([^\/?#]+)$/)[1];
-    console.log(url)
-    console.log(file)
-    return `https://api.4dist.com/download/${file}`;
+    const filename = `${file.split('.')[0]}`;
+    return `https://api.4dist.com/download/${filename}`;
   };
 
   return (
