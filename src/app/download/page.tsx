@@ -9,11 +9,11 @@ const download = () => {
 
     const video = getParameter('video') as string;
     const file = video.match(/\/([^\/?#]+)$/)[1]
-    const filename = `${file.split('.')[0]}.html`;
+    const filename = `${file.split('.')[0]}`;
     console.log(filename)
     return (
         <>
-            <iframe src={filename} width={'100%'}></iframe>
+            <iframe src={filename } width={'100%'}></iframe>
         </>
     )
 }
