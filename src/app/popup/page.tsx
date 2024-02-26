@@ -2,10 +2,12 @@
 import React from "react";
 import ReactPlayer from "react-player";
 import QRCode from "qrcode.react";
+import { useSearchParams } from 'next/navigation';
 
 const Popup = () => {
   let getParameter = (key: any) => {
-    return new URLSearchParams(location.search).get(key);
+    const searchParams = useSearchParams();
+    return searchParams.get(key);
   }
 
   const video = getParameter('video') as string;
@@ -16,6 +18,8 @@ const Popup = () => {
 
   const generateQ = (url: string) => {
     const file = url.match(/\/([^\/?#]+)$/)[1];
+    console.log(url)
+    console.log(file)
     return `https://api.4dist.com/download/${file}`;
   };
 
